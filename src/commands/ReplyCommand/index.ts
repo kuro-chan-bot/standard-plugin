@@ -1,4 +1,4 @@
-import { Command } from "@kuro-chan/framework"
+import { Command } from '@kuro-chan/framework'
 
 export class ReplyCommand extends Command {
   /**

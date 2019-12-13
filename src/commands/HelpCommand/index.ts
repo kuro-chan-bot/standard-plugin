@@ -1,5 +1,11 @@
-import { Command, ArgumentDefinition, CommandRequest, RichEmbed, CommandInterface, ArgumentType } from "@kuro-chan/framework"
-
+import {
+  Command,
+  ArgumentDefinition,
+  CommandRequest,
+  RichEmbed,
+  CommandInterface,
+  ArgumentType
+} from '@kuro-chan/framework'
 
 /**
  * Help command.

@@ -1,4 +1,4 @@
-import { Command, ParseMessage } from "@kuro-chan/framework"
+import { Command, ParseMessage } from '@kuro-chan/framework'
 
 /**
  * Ping command.
