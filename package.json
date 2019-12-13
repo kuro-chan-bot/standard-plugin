@@ -1,0 +1,22 @@
+{
+  "name": "@kuro-chan/standard-plugin",
+  "version": "0.0.0",
+  "description": "Standard plugin for KuroFramework.",
+  "main": "lib/index.js",
+  "types": "types/index.d.ts",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "lint": "eslint ./**/*.ts",
+    "publish-npm": "yarn build; yarn publish;"
+  },
+  "dependencies": {
+    "@kuro-chan/framework": "^0.2.4",
+    "@types/node": "^12.12.17"
+  },
+  "devDependencies": {
+    "tsc": "^1.20150623.0",
+    "typescript": "^3.7.3"
+  }
+}
