@@ -1,4 +1,4 @@
-import { Command } from '@kuro-chan/framework'
+import { Command, t } from '@kuro-chan/framework'
 
 export class ReplyCommand extends Command {
   /**
@@ -9,7 +9,7 @@ export class ReplyCommand extends Command {
   /**
    * Description.
    */
-  readonly description = 'Reply arguments.'
+  readonly description = t('commands.reply.description')
 
   /**
    * Single arg flag.

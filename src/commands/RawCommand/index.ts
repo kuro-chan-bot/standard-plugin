@@ -1,4 +1,4 @@
-import { Command } from '@kuro-chan/framework'
+import { Command, t } from '@kuro-chan/framework'
 
 /**
  * Raw command.
@@ -12,7 +12,7 @@ export class RawCommand extends Command {
   /**
    * Description.
    */
-  readonly description = 'Return raw arguments.'
+  readonly description = t('commands.raw.description')
 
   /**
    * Single arg flag.

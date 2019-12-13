@@ -4,7 +4,8 @@ import {
   CommandRequest,
   RichEmbed,
   CommandInterface,
-  ArgumentType
+  ArgumentType,
+  t
 } from '@kuro-chan/framework'
 
 /**
@@ -24,7 +25,7 @@ export class HelpCommand extends Command {
   /**
    * Description.
    */
-  readonly description = 'Show help.'
+  readonly description = t('commands.help.description')
 
   /**
    * Args.
@@ -33,7 +34,7 @@ export class HelpCommand extends Command {
     {
       name: 'commandName',
       required: false,
-      description: 'Command name.',
+      description: t('commands.help.args.commandName.description'),
       candidates: () => {
         const names = this.bot.commands.map(({ name }) => name)
         return names.length > this.maxCommandNames
@@ -69,18 +70,37 @@ export class HelpCommand extends Command {
 
     const embed = new RichEmbed()
     const usage = this.getCommandUsage(command, request.prefix)
+    const translator = this.bot.translator
+    const description =
+      typeof command.description === 'string'
+        ? command.description
+        : translator.translate(command.description) ||
+          translator.translate('standardPlugin.noDescriptionProvided')
 
     embed
       .setTitle(command.name)
       .setColor(this.bot.color)
-      .setDescription(command.description)
-      .addField('Usage', '`' + usage + '`')
+      .setDescription(description)
+      .addField(translator.translate('standardPlugin.usage'), '`' + usage + '`')
 
+    let argsHelp = ''
     for (const arg of command.compiledArgs) {
-      embed.addField(arg.name, this.argumentTypeToString(arg.type), true)
+      const name =
+        typeof arg.name === 'string' ? arg.name : translator.translate(arg.name)
+      const type = translator.translate(this.createArgumentTranslate(arg.type))
+      const description =
+        typeof arg.description === 'string'
+          ? arg.description
+          : translator.translate(arg.description)
+
+      argsHelp += `> \`${name}: ${type}\` *${description}*\n`
     }
 
-    return this.reply(embed)
+    if (argsHelp) {
+      embed.addField(translator.translate('standardPlugin.args'), argsHelp)
+    }
+
+    return this.reply({ embed })
   }
 
   /**
@@ -89,26 +109,36 @@ export class HelpCommand extends Command {
   private respondHelp(request: CommandRequest) {
     const commands = this.bot.commands
     const embed = new RichEmbed()
+    const translator = this.bot.translator
 
     embed
       .setTitle(`${this.bot.name}`)
       .setThumbnail(this.context.client.user.displayAvatarURL)
       .setColor(this.bot.color)
       .addField(
-        'Version',
-        this.bot.versionString + (this.bot.isBetaVersion ? '<beta>' : '')
+        translator.translate('standardPlugin.version'),
+        this.bot.versionString +
+          (this.bot.isBetaVersion
+            ? `<${translator.translate('standardPlugin.beta')}>`
+            : '')
       )
-      .addField('Prefixes', this.bot.prefixes.join(' '))
+      .addField(
+        translator.translate('standardPlugin.prefixes'),
+        this.bot.prefixes.join(' ')
+      )
 
     for (const command of commands) {
-      embed.addField(
-        request.prefix + command.name,
-        command.description || 'No description provided.',
-        true
-      )
+      const description =
+        typeof command.description === 'string'
+          ? command.description ||
+            translator.translate('standardPlugin.noDescriptionProvided')
+          : translator.translate(command.description)
+      embed.addField(request.prefix + command.name, description, true)
     }
 
-    return this.reply(embed)
+    return this.reply({
+      embed
+    })
   }
 
   /**
@@ -136,21 +166,21 @@ export class HelpCommand extends Command {
   }
 
   /**
-   * Argument type to string.
+   * Create argument translate.
    *
    * @param type
    */
-  private argumentTypeToString(type: ArgumentType) {
+  private createArgumentTranslate(type: ArgumentType) {
     switch (type) {
       case ArgumentType.Any:
-        return 'Any'
+        return t('standardPlugin.types.Any')
       case ArgumentType.Boolean:
-        return 'Boolean'
+        return t('standardPlugin.types.Boolean')
       case ArgumentType.Number:
-        return 'Number'
+        return t('standardPlugin.types.Number')
       case ArgumentType.String:
-        return 'String'
+        return t('standardPlugin.types.String')
     }
-    return 'Unknown'
+    return t('standardPlugin.types.Unknown')
   }
 }

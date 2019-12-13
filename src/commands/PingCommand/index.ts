@@ -1,4 +1,4 @@
-import { Command, ParseMessage } from '@kuro-chan/framework'
+import { Command, ParseMessage, t } from '@kuro-chan/framework'
 
 /**
  * Ping command.
@@ -12,7 +12,7 @@ export class PingCommand extends Command {
   /**
    * Description.
    */
-  description = 'Measure ping.'
+  description = t('commands.ping.description')
 
   /**
    * Run.
