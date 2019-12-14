@@ -1,6 +1,6 @@
 {
   "name": "@kuro-chan/standard-plugin",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Standard plugin for KuroFramework.",
   "main": "lib/index.js",
   "types": "types/index.d.ts",
