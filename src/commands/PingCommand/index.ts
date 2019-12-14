@@ -1,4 +1,10 @@
-import { Command, ParseMessage, t } from '@kuro-chan/framework'
+import {
+  Command,
+  ParseMessage,
+  t,
+  CommandRequest,
+  RichEmbed
+} from '@kuro-chan/framework'
 
 /**
  * Ping command.
@@ -17,8 +23,24 @@ export class PingCommand extends Command {
   /**
    * Run.
    */
-  run() {
-    return this.reply(`Ping: ${this.context.client.ping} ms.`)
+  run(args: any[], { message: { createdTimestamp } }: CommandRequest) {
+    const translator = this.bot.translator
+    const embed = new RichEmbed()
+
+    embed
+      .setTitle(translator.translate('commands.ping.measureResult'))
+      .addField(
+        translator.translate('commands.ping.WebSocket'),
+        this.context.client.ping + ` ms`
+      )
+      .addField(
+        translator.translate('commands.ping.message'),
+        this.getPing(createdTimestamp) + ' ms'
+      )
+
+    return this.reply({
+      embed
+    })
   }
 
   /**
