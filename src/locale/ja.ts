@@ -12,7 +12,10 @@ export const ja = {
       }
     },
     ping: {
-      description: 'ピン値を計測します。'
+      description: 'ピン値を計測します。',
+      measureResult: '計測結果',
+      WebSocket: 'WebSocket',
+      message: 'メッセージ'
     },
     raw: {
       description: '引数をそのまま返します。'
