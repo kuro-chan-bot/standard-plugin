@@ -12,7 +12,10 @@ export const en = {
       }
     },
     ping: {
-      description: 'Measure ping.'
+      description: 'Measure ping.',
+      measureResult: 'Measure result',
+      WebSocket: 'WebSocket',
+      message: 'Message'
     },
     raw: {
       description: 'Return raw args.'
