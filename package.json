@@ -1,6 +1,6 @@
 {
   "name": "@kuro-chan/standard-plugin",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Standard plugin for KuroFramework.",
   "main": "lib/index.js",
   "types": "types/index.d.ts",
@@ -12,7 +12,7 @@
     "publish-npm": "yarn build; yarn publish;"
   },
   "dependencies": {
-    "@kuro-chan/framework": "^0.2.12",
+    "@kuro-chan/framework": "^0.2.13",
     "@types/node": "^12.12.17"
   },
   "devDependencies": {
