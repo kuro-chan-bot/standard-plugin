@@ -83,6 +83,13 @@ export class HelpCommand extends Command {
       .setDescription(description)
       .addField(translator.translate('standardPlugin.usage'), '`' + usage + '`')
 
+    if (command.aliases.length > 0) {
+      embed.addField(
+        translator.translate('standardPlugin.aliases'),
+        command.aliases.join(',')
+      )
+    }
+
     let argsHelp = ''
     for (const arg of command.compiledArgs) {
       const name =
