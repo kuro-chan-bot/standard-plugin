@@ -28,6 +28,7 @@ export const ja = {
     version: 'バージョン',
     beta: 'ベータ',
     prefixes: 'プレフィックス',
+    aliases: 'エイリアス',
     args: '引数',
     usage: '使用方法',
     description: '説明',

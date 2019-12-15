@@ -28,6 +28,7 @@ export const en = {
     version: 'Version',
     beta: 'Beta',
     prefixes: 'Prefixes',
+    aliases: 'Aliases',
     args: 'Args',
     usage: 'Usage',
     description: 'Description',
