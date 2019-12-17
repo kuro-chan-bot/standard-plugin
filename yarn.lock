@@ -23,10 +23,10 @@
   resolved "https://registry.yarnpkg.com/@kuro-chan/argument-parser/-/argument-parser-0.0.0.tgz#f46cdc8735ab458f52620097f286273f7e7778f4"
   integrity sha512-Gqkr8+wplIzycFP9zwYcbjzBjNvs+Q+gTkPQxQtO7C8jql6IkZ2ZnaiXa/VwE74zpvuIGodwnBuNhMY3TlW34w==
 
-"@kuro-chan/framework@^0.2.19":
-  version "0.2.19"
-  resolved "https://registry.yarnpkg.com/@kuro-chan/framework/-/framework-0.2.19.tgz#2ae0862d4dc13ba6c8c91b44f836b7c432bed043"
-  integrity sha512-iP/SRE2koFk3Gl1W7eIDp8ZkIIQv+Q4nTNDPAIlIGDd8Q+82uJ9nF1ILvwZtUUtGKQCU1vzrIOfjHPQcOl1Rag==
+"@kuro-chan/framework@^0.2.20":
+  version "0.2.20"
+  resolved "https://registry.yarnpkg.com/@kuro-chan/framework/-/framework-0.2.20.tgz#b3a7d311c98df6f3540c37c0d75ff28abc25e62a"
+  integrity sha512-3TRDHhGyBExu0QIdHxPJq23/HXBMDMdQzfBQsV5XI6sK0PsdLrKOMer4QTbHsRO4dFhBCHVF7sYXK0EDqyM0xg==
   dependencies:
     "@kuro-chan/argument-parser" "^0.0.0"
     colors "^1.4.0"
