@@ -12,7 +12,7 @@
     "publish-npm": "yarn build; yarn publish;"
   },
   "dependencies": {
-    "@kuro-chan/framework": "^0.2.27",
+    "@kuro-chan/framework": "^0.2.28",
     "@types/node": "^12.12.17"
   },
   "devDependencies": {
